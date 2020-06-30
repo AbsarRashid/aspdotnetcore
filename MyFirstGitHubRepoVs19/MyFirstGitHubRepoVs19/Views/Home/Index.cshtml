@@ -1,79 +1,115 @@
 ﻿
-@{
-    Layout = null;
+@{ 
+    dynamic data = ViewBag.Data;
+    //For complex data we need to cast
+    var bookInfo = ViewData["book"] as MyFirstGitHubRepoVs19.Models.BookModel;
+    var book = ViewData["book"] as MyFirstGitHubRepoVs19.Models.BookModel;
 }
 
-<!DOCTYPE html>
+@section breadcrumb{ 
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Page1</a></li>
+            <li class="breadcrumb-item"><a href="#">Index</a></li>
+        </ol>
+    </nav>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-
-    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
-    <link href="~/css/Site.css" rel="stylesheet" />
-</head>
-<body class="container">
-    <h1>Welcome to book store Application</h1>    
-    <h1>@DateTime.Now.ToString("dd-MMM-yyyy")</h1>
-    <img src="~/images/logo.jpg" class="logo" alt="logo" />
-
-    <img src="~/MyStaticFiles/medium.png" /> <h1>Sum=@(3+5)</h1>
-    <hr />
-    <h1>Multiline</h1>
-    @{
-        int a = 10;
-        int b = 20;
-        int c = a + b;
-    }
-    <h1>@c</h1>
-    <h2>My email-nitish@gmail.com</h2>
-    <h2>Twitter-@@absar </h2>
-    @{
-        int d = 1;
-        int k = 0;
-    }
-    @if (d > 5)
-    {
-        d++;
-        <h1>Hello if block true and value = @d</h1>
-    }
-    else
-    {
-        <h1>Hello if block false</h1>
-    }
-    <h1>Ternary- @(d==10 ? k=10 :k=50)</h1>
-
-
-    @switch (d)
-    {
-        case 1:<h1>I m @d</h1>
-        break;
-    case 2:<h1>I m @d</h1>
-    break;
-default:
-    break;
 }
 
-    @for (int i = 0; i < 10; i++)
-    {
-        <h1>I am repeated @i</h1>
-    }
-    @{
-        var list = new List<int> { 1, 2, 3, 4, 5 };
-    }
-    @foreach (var item in list)
-    {
-        <h2>@item</h2>
-    }
-
-</body>
-<script src="~/lib/jquery/jquery.js"></script>
-</html>
+<h1>@ViewBag.Title</h1>
 
 
-<script>
-    $(document).ready(function () {
-        alert("Page Loaded");
-    });
-</script>
+<environment names="Development">
+    <h1>Development</h1>
+</environment>
+
+<environment names="Production, Staging">
+    <h1>Production</h1>
+</environment>
+
+
+<section class="jumbo text-center">
+    <div class="container">
+        <h1>Welcome to Bookstore</h1>
+        <p class="lead text-muted">
+            @data.Id @data.Name<br />
+            Id=@ViewBag.Type.Id<br />
+            Name=@ViewBag.Type.Author<br />
+
+            @ViewData["Property1"]<br />
+
+            @bookInfo.Id
+            @bookInfo.Author<br />
+            @ViewData["CustomProperty"]<br />
+            @book.Id
+            @book.Title<br />
+
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <p>
+            <a href="#" class="btn btn-primary my-2">Search books</a>
+        </p>
+    </div>
+</section>
+
+
+<div class="py-5 bg-light">
+    <div class="container">
+        <h3 class="h3 text-center">Top books</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                    <div class="card-body">
+                        <p class="card-text">This section will be used to display the short description of book</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-sm btn-outline-secondary">View details</a>
+                            </div>
+                            <small class="text-muted">Author name</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                    <div class="card-body">
+                        <p class="card-text">This section will be used to display the short description of book</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-sm btn-outline-secondary">View details</a>
+                            </div>
+                            <small class="text-muted">Author name</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                    <div class="card-body">
+                        <p class="card-text">This section will be used to display the short description of book</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-sm btn-outline-secondary">View details</a>
+                            </div>
+                            <small class="text-muted">Author name</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            alert("I m Index");
+        });
+    </script>
+}

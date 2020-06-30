@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewData["Title"] = "PracRazorCSharp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>PracRazorCSharp</h1>
+
+<h1>Welcome to book store Application</h1>
+<h3>Run Time Compilation Made my Life easier</h3>
+<h5>
+    Checking Development
+    Now Release
+</h5>
+<h1>@DateTime.Now.ToString("dd-MMM-yyyy")</h1>
+<img src="~/images/logo.jpg" class="logo" alt="logo" />
+
+<img src="~/MyStaticFiles/medium.png" />
+<h1>Sum=@(3+5)</h1>
+<hr />
+<h1>Multiline</h1>
+@{
+    int a = 10;
+    int b = 20;
+    int c = a + b;
+}
+<h1>@c</h1>
+<h2>My email-nitish@gmail.com</h2>
+<h2>Twitter-@@absar </h2>
+@{
+    int d = 1;
+    int k = 0;
+}
+@if (d > 5)
+{
+    d++;
+    <h1>Hello if block true and value = @d</h1>
+}
+else
+{
+    <h1>Hello if block false</h1>
+}
+<h1>Ternary- @(d==10 ? k=10 :k=50)</h1>
+
+
+@switch (d)
+{
+    case 1:<h1>I m @d</h1>
+    break;
+case 2:<h1>I m @d</h1>
+break;
+default:
+break;
+}
+
+@for (int i = 0; i < 10; i++)
+{
+    <h1>I am repeated @i</h1>
+}
+@{
+    var list = new List<int> { 1, 2, 3, 4, 5 };
+}
+@foreach (var item in list)
+{
+    <h2>@item</h2>
+}
+
+<script>
+    $(document).ready(function () {
+        alert("Page Loaded");
+    });
+</script>

@@ -1,0 +1,44 @@
+﻿@model MyFirstGitHubRepoVs19.Models.BookModel
+@{
+    ViewData["Title"] = "AddNewBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <form method="post" asp-controller="Book" asp-action="AddNewBook">
+        <h1>Add new book</h1>
+        <div class="row">
+            <div class="col-1">
+                <label asp-for="Title"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="Title" class="form-control" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-1">
+                <label asp-for="Description"></label>
+            </div>
+            <div class="col-8">
+                <textarea asp-for="Description" class="form-control">
+                </textarea>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-1">
+                <label asp-for="Author"></label>
+            </div>
+            <div class="col-8">
+                <input asp-for="Author" class="form-control" />
+            </div>
+        </div>
+        <br />
+        <div class="row">
+           <input type="submit" value="Add Book" class="btn btn-primary" />
+        </div>
+
+    </form>
+</div>
